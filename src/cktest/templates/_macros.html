@@ -1,0 +1,54 @@
+{% macro create_table(headers, data) %}
+<table class="table">
+    <thead>
+        <tr style=background-color:#e6e6e6>
+            {% for col in headers %}
+            <th rowspan="1" colspan="1" style="text-align:center">{{ col }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            {% for cell in row %}
+            <td style="text-align:left">{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endmacro %}
+
+{% macro table_dict(input_dict) %}
+<table class="table table-striped">
+    <tbody>
+        {% for key, value in input_dict.items() %}
+        <tr>
+            <th scope="row" style="text-align:left">{{ key }}</th>
+            <td style="text-align:left">{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endmacro %}
+
+{% macro table_df(input_df) %}
+<table class="table table-striped">
+    <thead>
+        <tr class="table-primary">
+            {% for col in input_df.columns.to_list() %}
+            <th scope="col">{{ col }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for idx, row in input_df.iterrows() %}
+        <tr>
+            {% for col in input_df.columns.to_list() %}
+            <td> {{ row[col] }} </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endmacro %}

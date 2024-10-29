@@ -1,0 +1,54 @@
+{% from 'bootstrap/form.html' import render_field %}
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h1 style="display:block; text-align:center;">Product Mapping</h1>
+	<form method="POST" action="{{ url_for('main.submit_input_list') }}">
+		<label for="inputList" style="display:block; text-align:center; margin-bottom:10px;">Enter product names (one per line):</label>
+        <textarea id="inputList" name="inputList" rows="10" cols="80" placeholder="Enter product names..."></textarea>
+        <button type="submit" id="submitListButton">Submit</button>
+    </form>
+
+	<form method="POST" action="{{ url_for('main.submit_results') }}">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Grocery</th>
+                    <th>Category</th>
+                    <th>Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>
+                        {{ row.Grocery }}
+                        <input type="hidden" name="grocery" value="{{ row.Grocery }}">
+                    </td>
+                    <td>
+                        <select name="category">
+                            {% for category in categories %}
+                            <option value="{{ category }}" {% if category == row.Category %}selected{% endif %}>
+                                {{ category }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+					<td>
+						<input type="checkbox" id="available_{{ loop.index0 }}" name="available_{{ loop.index0 }}" {% if row.Available == "Yes" %}checked{% endif %}>
+						<label for="available_{{ loop.index0 }}" class="custom-checkbox"></label>
+					</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Export to Excel</button>
+    </form>
+	<script>
+        function onListButtonClick() {
+            // Display the table after the "Submit" button is clicked
+            document.getElementById('resultTableForm').style.display = 'block';
+        }
+    </script>
+</body>
+{% endblock content %}

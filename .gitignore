@@ -110,7 +110,6 @@ ENV/
 *.pdf
 *.mp4
 *.avi
-*.html
 
 # user data files
 *.pkl
