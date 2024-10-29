@@ -1,0 +1,178 @@
+/* Font family */
+body, h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif; /* Use Poppins as the font family */
+}
+
+/* Color palette */
+:root {
+    --dark-green: #05322b;
+    --green: #018374;
+    --light-green: #02bc94;
+    --white: #FFFFFF;
+    --gray: #949494;
+    --black: #000000;
+}
+
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #444444;
+}
+
+.bg-steel {
+    background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+}
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+}
+
+.profile-icon {
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.account-heading {
+    font-size: 2.5rem;
+}
+/* Basic table styling */
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Apply light gray background to every other row */
+table tr:nth-child(even) {
+    background-color: var(--gray); /* Light gray */
+}
+/* Button styling */
+button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--green);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+/* Button hover and click effect */
+button:hover {
+    background-color: var(--light-green);
+}
+
+button:active {
+    transform: scale(0.95);
+    background-color: #003f7f;
+}
+
+/* Disable button after click */
+.clicked {
+    background-color: #5cb85c !important;
+    cursor: not-allowed;
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+/* Create a custom checkbox */
+.custom-checkbox {
+    position: relative;
+    width: 20px; /* Size of the custom checkbox */
+    height: 20px;
+    border: 2px solid var(--green);
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+}
+
+/* Checkmark when checked */
+input[type="checkbox"]:checked + .custom-checkbox {
+    background-color: var(--green);
+}
+
+/* Checkmark style */
+.custom-checkbox:after {
+    content: "✓"; /* Checkmark symbol */
+    color: var(--white);
+    font-size: 16px; /* Size of the checkmark */
+    line-height: 20px; /* Center the checkmark vertically */
+    display: none; /* Hide by default */
+}
+
+/* Show checkmark when checkbox is checked */
+input[type="checkbox"]:checked + .custom-checkbox:after {
+    display: block; /* Show the checkmark */
+}
+
+/* Centering the label and textarea */
+form {
+    text-align: center; /* Center the contents of the form */
+}
+
+/* Label styling */
+label {
+    font-size: 16px; /* Increase font size */
+    margin-bottom: 5px; /* Space below the label */
+    display: inline-block; /* Ensures margin is applied */
+    color: var(--black); /* Change label color */
+}
+
+/* Textarea styling */
+textarea {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Max width for textarea */
+    padding: 10px; /* Padding inside textarea */
+    margin-bottom: 10px; /* Space below the textarea */
+    border: 1px solid var(--gray); /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    resize: none; /* Prevent resizing */
+    font-size: 14px; /* Font size for text inside */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
